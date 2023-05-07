@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Smart Lighting Application</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Smart Lighting Application</h1>
+	<p>
+		<label for="light-select">Select a light:</label>
+		<select id="light-select" onchange="updateColorSelector()">
+			<option value="light1">Light 1</option>
+			<option value="light2">Light 2</option>
+			<option value="light3">Light 3</option>
+		</select>
+	</p>
+	<p>
+		<label for="color-select">Select a color:</label>
+		<select id="color-select" onchange="changeColor()">
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="blue">Blue</option>
+			<option value="yellow">Yellow</option>
+			<option value="purple">Purple</option>
+			<option value="orange">Orange</option>
+		</select>
+	</p>
+	<table id="lights">
+		<tr>
+			<th>Light 1</th>
+			<td id="light1" style="background-color: white"></td>
+		</tr>
+		<tr>
+			<th>Light 2</th>
+			<td id="light2" style="background-color: white"></td>
+		</tr>
+		<tr>
+			<th>Light 3</th>
+			<td id="light3" style="background-color: white"></td>
+		</tr>
+	</table>
+	<script>
+		function updateColorSelector() {
+			var light = document.getElementById("light-select").value;
+			var color = document.getElementById(light).style.backgroundColor;
+			document.getElementById("color-select").value = color;
+		}
+
+		function changeColor() {
+			var light = document.getElementById("light-select").value;
+			var color = document.getElementById("color-select").value;
+			document.getElementById(light).style.backgroundColor = color;
+		}
+	</script>
+</body>
+</html>
